@@ -1,6 +1,7 @@
 @extends('layouts.layout')
 
 @section('content')
+
 	@if(isset($_GET['search']))
 		@if(count($posts)>0)
 			<h2>Результаты поиска по запросу: <?= $_GET['search']; ?></h2>
@@ -14,13 +15,13 @@
 
 	<div class="row">
 		@foreach($posts as $post)
-		<div class="col-6">
+		<div class="col-12 col-sm-6">
 			<div class="card">
 				<div class="card-header"><h2>{{ $post->short_title }}</h2></div>
 				<div class="card-body">
 					<div class="card-img" style="background-image: url({{ $post->img ?? asset('img/default.png') }});"></div>
 					<div class="card-author">Автор: {{ $post->name }}</div>
-					<a href="#" class ="btn btn-outline-primary">Посмотреть пост</a>
+					<a href="{{ route('post.show', ['id'=> $post->post_id]) }}" class ="btn btn-outline-primary">Посмотреть пост</a>
 				</div>
 			</div>
 		</div>

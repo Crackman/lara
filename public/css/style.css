@@ -1,3 +1,7 @@
+html {
+    overflow-y: scroll;
+}
+
 body {
     background: #fff;
 }
@@ -16,4 +20,22 @@ nav {
     -webkit-background-size: cover;
     background-size: cover;
     background-repeat: no-repeat;
+}
+
+.card-img,
+.card-author,
+.card-date {
+    margin-bottom: 10px;
+}
+
+.card-img__max {
+    height: 400px;
+}
+
+.card-btn {
+    display: flex;
+}
+
+.card-btn a {
+    margin-right: 10px;
 }

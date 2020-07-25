@@ -64,7 +64,7 @@ class PostController extends Controller
 
         $post->save();
 
-        return redirect()->route('post.index');
+        return redirect()->route('post.index')->with('success', 'Пост успешно создан');
 
     }
 
@@ -76,7 +76,8 @@ class PostController extends Controller
      */
     public function show($id)
     {
-        //
+        $post = Post::find($id);
+        return view('posts.show', compact('post'));
     }
 
     /**
@@ -87,7 +88,8 @@ class PostController extends Controller
      */
     public function edit($id)
     {
-        //
+        $post = Post::find($id);
+        return view('posts.edit', compact('post'));
     }
 
     /**
