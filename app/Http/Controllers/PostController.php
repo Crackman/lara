@@ -6,6 +6,7 @@ use App\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Storage;
+use App\Http\Requests\PostRequest;
 
 class PostController extends Controller
 {
@@ -49,7 +50,7 @@ class PostController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(PostRequest $request)
     {
         $post = new Post();
         $post->title = $request->title;
@@ -115,7 +116,7 @@ class PostController extends Controller
         $post->update();
         $id = $post->post_id;
 
-        return redirect()->route('post.show', compact('id'))->with('success', 'Пост успешно отредактирован!');
+        return redirect()->route('post.show', compact('post'))->with('success', 'Пост успешно отредактирован!');
     }
 
     /**

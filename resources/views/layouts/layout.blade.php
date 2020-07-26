@@ -4,9 +4,10 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Laravel</title>
+    <title>{{ $title }}</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <link rel="stylesheet" href="{{asset('css/style.css')}}">
+    <link rel="shortcut icon" href="{{ asset('img/favicon.png') }}">
 </head>
 
 <body>
@@ -30,6 +31,17 @@
         </div>
     </nav>
     <div class="container">
+        @if($errors->any())
+            @foreach($errors->all() as $error)
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                {{ $error }}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            @endforeach
+        @endif
+
     	@if(session('success'))
 		<div class="alert alert-success alert-dismissible fade show" role="alert">
 			{{ session('success') }}

@@ -24,7 +24,8 @@ nav {
 
 .card-img,
 .card-author,
-.card-date {
+.card-date,
+.card-descr {
     margin-bottom: 10px;
 }
 
